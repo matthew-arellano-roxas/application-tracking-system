@@ -1,0 +1,21 @@
+model User {
+    id            String   @id @default(uuid())
+    email         String   @unique
+    avatarUrl     String?  @map("avatar_url")
+    oauthProvider String?  @map("oauth_provider")
+    password      String?
+    name          String
+    role          UserRole @default(CANDIDATE)
+    createdAt     DateTime @default(now()) @map("created_at")
+
+    candidates Candidate[]
+    cvs        CV?
+    jobs       Job[]
+
+    @@map("users")
+}
+
+enum UserRole {
+    CANDIDATE @map("candidate")
+    RECRUITER @map("recruiter")
+}

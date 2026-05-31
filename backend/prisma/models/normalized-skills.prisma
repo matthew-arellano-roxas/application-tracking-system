@@ -1,0 +1,7 @@
+model SkillNormalization {
+    id               String @id @default(uuid())
+    rawSkills        String @map("raw_skills")
+    normalizedSkills String @map("normalized_skills")
+
+    @@map("skill_normalization")
+}

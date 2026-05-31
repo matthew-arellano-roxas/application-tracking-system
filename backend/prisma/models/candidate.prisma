@@ -1,0 +1,13 @@
+model Candidate {
+    id           String        @id @default(uuid())
+    userId       String        @unique @map("user_id")
+    user         User          @relation(fields: [userId], references: [id])
+    cvId         String        @map("cv_id")
+    cv           CV            @relation(fields: [cvId], references: [id])
+    name         String
+    email        String        @unique
+    createdAt    DateTime      @default(now()) @map("created_at")
+    applications Application[]
+
+    @@map("candidates")
+}

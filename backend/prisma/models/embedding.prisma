@@ -1,0 +1,8 @@
+model Embedding {
+    id         String                       @id @default(uuid())
+    entityId   String                       @map("entity_id")
+    entityType String                       @map("entity_type")
+    embedding  Unsupported("vector(1536)")?
+
+    @@map("embeddings")
+}

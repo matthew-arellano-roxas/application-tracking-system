@@ -1,0 +1,17 @@
+model Job {
+    id              String        @id @default(uuid())
+    title           String
+    description     String
+    recruiterId     String        @map("recruiter_id")
+    recruiter       User          @relation(fields: [recruiterId], references: [id])
+    requiredSkills  Json          @map("required_skills")
+    preferredSkills Json          @map("preferred_skills")
+    minExperience   Int           @map("min_experience")
+    location        String
+    createdAt       DateTime      @default(now()) @map("created_at")
+    applications    Application[]
+
+    jobParsedData JobParsedData?
+
+    @@map("jobs")
+}

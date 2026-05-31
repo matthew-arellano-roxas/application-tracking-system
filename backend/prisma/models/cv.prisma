@@ -1,0 +1,12 @@
+model CV {
+    id         String @id @default(uuid())
+    userId     String @unique @map("user_id")
+    user       User   @relation(fields: [userId], references: [id])
+    fileUrl    String @unique @map("file_url")
+    rawText    String @map("raw_text")
+    parsedText Json   @map("parsed_text")
+
+    candidates Candidate[]
+
+    @@map("cvs")
+}

@@ -1,0 +1,54 @@
+{
+  "name": "ts-node-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/src/server.js",
+  "scripts": {
+    "start": "node dist/src/server.js",
+    "build": "tsc && tsc-alias",
+    "dev": "nodemon",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prisma:generate": "dotenv -e .env.development -- prisma generate",
+    "prisma:migrate": "dotenv -e .env.development -- prisma migrate dev",
+    "prisma:migrate:create": "dotenv -e .env.development -- prisma migrate dev --create-only",
+    "prisma:migrate:apply": "dotenv -e .env.development -- prisma migrate deploy",
+    "prisma:studio": "dotenv -e .env.development -- prisma studio"
+  },
+  "keywords": [],
+  "author": "Matthew Roxas",
+  "license": "Apache-2.0",
+  "type": "commonjs",
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@tsconfig/node20": "^20.1.9",
+    "@types/express": "^5.0.5",
+    "@types/node": "^25.9.0",
+    "@types/pg": "^8.20.0",
+    "dotenv-cli": "^11.0.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.5.0",
+    "jiti": "^2.6.1",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.7.4",
+    "prisma": "^7.8.0",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.22.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.1"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.1.0",
+    "pg": "^8.21.0"
+  },
+  "overrides": {
+    "@hono/node-server": "^1.19.13"
+  }
+}

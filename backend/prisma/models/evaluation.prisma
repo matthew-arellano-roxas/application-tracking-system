@@ -1,0 +1,13 @@
+model Evaluation {
+    id              String      @id @default(uuid())
+    applicationId   String         @map("application_id")
+    application     Application @relation(fields: [applicationId], references: [id])
+    skillScore      Float       @map("skill_score")
+    experienceScore Float       @map("experience_score")
+    bonusScore      Float       @map("bonus_score")
+    finalScore      Float       @map("final_score")
+    explanation     String      @map("explanation")
+    createdAt       DateTime    @default(now()) @map("created_at")
+
+    @@map("evaluations")
+}
